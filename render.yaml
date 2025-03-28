@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: cristalcup
+    env: python
+    buildCommand: ""
+    startCommand: "python app.py"
+    plan: free
+    envVars:
+      - key: FLASK_SECRET_KEY
+        value: supersegredo123
+      - key: DATABASE_URL
+        fromDatabase:
+          name: cristalcup-db
+          property: connectionString
+
+databases:
+  - name: cristalcup-db
