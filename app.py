@@ -12,7 +12,10 @@ def get_db_connection():
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    try:
+        return render_template('index.html')
+    except Exception as e:
+        return f"Erro ao carregar index.html: {e}"
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
